@@ -623,7 +623,7 @@ build_mingw_headers ()
             cd $BUILD_DIR/$PKGNAME &&
             log "$PKGNAME: Configuring" &&
             run $MINGW_W64_SRC/mingw-w64-headers/configure --prefix=$PREFIX_FOR_TARGET --host=$TARGET_TAG \
-                --build=$HOST_TAG --with-widl=$WITH_WIDL --enable-sdk=all
+                --build=$HOST_TAG --with-widl=$WITH_WIDL --enable-sdk=all --enable-secure-api
             fail_panic "Can't configure mingw-64-headers"
 
             run make

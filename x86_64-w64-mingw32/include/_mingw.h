@@ -7,7 +7,7 @@
 #ifndef _INC__MINGW_H
 #define _INC__MINGW_H
 
-
+#define MINGW_HAS_SECURE_API 1
 
 #include "_mingw_mac.h"
 #include "_mingw_secapi.h"

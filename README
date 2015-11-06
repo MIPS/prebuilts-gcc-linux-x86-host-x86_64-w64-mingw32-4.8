@@ -1,4 +1,4 @@
-This file has been automatically generated on Thu Oct 22 14:59:00 PDT 2015 with the following command:
+This file has been automatically generated on Tue Nov  3 15:34:18 PST 2015 with the following command:
 build-mingw64-toolchain.sh --gcc-version=4.8.3
 
 The MD5 hashes for the original sources packages are:
