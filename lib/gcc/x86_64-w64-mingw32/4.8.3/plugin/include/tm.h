@@ -23,6 +23,7 @@
 # include "config/i386/gas.h"
 # include "config/dbxcoff.h"
 # include "config/i386/cygming.h"
+# include "config/i386/mingw-pthread.h"
 # include "config/i386/mingw32.h"
 # include "config/i386/mingw-w64.h"
 # include "config/i386/mingw-stdint.h"

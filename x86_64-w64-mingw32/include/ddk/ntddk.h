@@ -69,6 +69,7 @@ struct _LOADER_PARAMETER_BLOCK;
 struct _CREATE_DISK;
 struct _DRIVE_LAYOUT_INFORMATION_EX;
 struct _SET_PARTITION_INFORMATION_EX;
+struct _DISK_GEOMETRY_EX;
 
 typedef struct _BUS_HANDLER *PBUS_HANDLER;
 typedef struct _DEVICE_HANDLER_OBJECT *PDEVICE_HANDLER_OBJECT;
@@ -3336,9 +3337,10 @@ static __inline PVOID
 ExAllocateFromZone(
   IN PZONE_HEADER Zone)
 {
+  PVOID Result = (PVOID)Zone->FreeList.Next;
   if (Zone->FreeList.Next)
     Zone->FreeList.Next = Zone->FreeList.Next->Next;
-  return (PVOID) Zone->FreeList.Next;
+  return Result;
 }
 
 static __inline PVOID

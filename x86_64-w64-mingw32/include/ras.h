@@ -1,12 +1,16 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
+#include <winapifamily.h>
+
 #ifndef _RAS_H_
 #define _RAS_H_
 
 #include <_mingw_unicode.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #include <inaddr.h>
 #include <in6addr.h>
@@ -135,6 +139,9 @@ typedef struct in6_addr RASIPV6ADDR;
     WCHAR szDomain[DNLEN + 1 ];
     DWORD dwSubEntry;
     ULONG_PTR dwCallbackId;
+#if _WIN32_WINNT >= 0x0601
+    DWORD dwIfIndex;
+#endif
   };
 
 #define RASDIALPARAMSA struct tagRASDIALPARAMSA
@@ -148,6 +155,9 @@ typedef struct in6_addr RASIPV6ADDR;
     CHAR szDomain[DNLEN + 1 ];
     DWORD dwSubEntry;
     ULONG_PTR dwCallbackId;
+#if _WIN32_WINNT >= 0x0601
+    DWORD dwIfIndex;
+#endif
   };
 
 #define RASDIALPARAMS __MINGW_NAME_AW(RASDIALPARAMS)
@@ -1037,4 +1047,5 @@ typedef struct _RASUPDATECONN {
 #endif
 
 #include <poppack.h>
+#endif
 #endif
