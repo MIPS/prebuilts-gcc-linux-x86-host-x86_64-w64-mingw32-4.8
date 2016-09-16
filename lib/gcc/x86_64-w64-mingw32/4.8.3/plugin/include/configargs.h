@@ -1,6 +1,6 @@
 /* Generated automatically. */
-static const char configuration_arguments[] = "/tmp/build-mingw64-toolchain-joshualang/src/gcc-4.8.3/configure --prefix=/tmp/build-mingw64-toolchain-joshualang/install-x86_64-linux-gnu/x86_64-w64-mingw32 --disable-shared --with-gmp=/tmp/build-mingw64-toolchain-joshualang/install-x86_64-linux-gnu/x86_64-w64-mingw32 --with-mpfr=/tmp/build-mingw64-toolchain-joshualang/install-x86_64-linux-gnu/x86_64-w64-mingw32 --with-mpc=/tmp/build-mingw64-toolchain-joshualang/install-x86_64-linux-gnu/x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-targets=all --enable-languages=c,c++ --with-sysroot=/tmp/build-mingw64-toolchain-joshualang/install-x86_64-linux-gnu/x86_64-w64-mingw32";
-static const char thread_model[] = "win32";
+static const char configuration_arguments[] = "/usr/local/google/buildbot/src/android/mingw/toolchain/gcc/gcc-4.8.3/configure --prefix=/usr/local/google/buildbot/src/android/mingw/out/install/x86_64-w64-mingw32-4.8 --disable-shared --with-gmp=/usr/local/google/buildbot/src/android/mingw/out/install/x86_64-w64-mingw32-4.8 --with-mpfr=/usr/local/google/buildbot/src/android/mingw/out/install/x86_64-w64-mingw32-4.8 --with-mpc=/usr/local/google/buildbot/src/android/mingw/out/install/x86_64-w64-mingw32-4.8 --target=x86_64-w64-mingw32 --enable-targets=all --enable-languages=c,c++ --with-sysroot=/usr/local/google/buildbot/src/android/mingw/out/install/x86_64-w64-mingw32-4.8 --enable-threads=posix";
+static const char thread_model[] = "posix";
 
 static const struct {
   const char *name, *value;

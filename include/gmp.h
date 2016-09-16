@@ -2266,7 +2266,7 @@ enum
 };
 
 /* Define CC and CFLAGS which were used to build this version of GMP */
-#define __GMP_CC "gcc -std=gnu99"
+#define __GMP_CC "/usr/local/google/buildbot/src/android/mingw/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.8/bin/x86_64-linux-gcc -std=gnu99"
 #define __GMP_CFLAGS "-O2 -fomit-frame-pointer -s"
 
 /* Major version number is the value of __GNU_MP__ too, above and in mp.h. */

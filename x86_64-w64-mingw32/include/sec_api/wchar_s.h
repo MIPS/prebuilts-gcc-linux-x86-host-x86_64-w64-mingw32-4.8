@@ -16,7 +16,7 @@ extern "C" {
 
 #ifndef _WIO_S_DEFINED
 #define _WIO_S_DEFINED
-  errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
+  _CRTIMP errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
   errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName,size_t _SizeInWords);
 #endif
 
@@ -117,8 +117,10 @@ extern "C" {
   _CRTIMP errno_t __cdecl _wcsupr_s(wchar_t *_Str,size_t _Size);
   _CRTIMP errno_t __cdecl _wcsupr_s_l(wchar_t *_Str,size_t _Size,_locale_t _Locale);
 
-  __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(errno_t,wcscpy_s,wchar_t,,_Dst,size_t,,_nElem,const wchar_t *,,_Src)
-  __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(errno_t,wcscat_s,wchar_t,,_Dst,size_t,,_nElem,const wchar_t *,,_Src)
+  _CRTIMP errno_t __cdecl wcscat_s(wchar_t *_Dst, rsize_t _DstSize, const wchar_t *_Src);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, wcscat_s, wchar_t, _Dest, const wchar_t *, _Source)
+  _CRTIMP errno_t __cdecl wcscpy_s(wchar_t *_Dst, rsize_t _DstSize, const wchar_t *_Src);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, wcscpy_s, wchar_t, _Dest, const wchar_t *, _Source)
 
   _CRTIMP errno_t __cdecl wcsncat_s(wchar_t *_Dst,size_t _DstSizeInChars,const wchar_t *_Src,size_t _MaxCount);
   _CRTIMP errno_t __cdecl _wcsncat_s_l(wchar_t *_Dst,size_t _DstSizeInChars,const wchar_t *_Src,size_t _MaxCount,_locale_t _Locale);
@@ -128,6 +130,9 @@ extern "C" {
   _CRTIMP errno_t __cdecl _wcsset_s_l(wchar_t *_Str,size_t _SizeInChars,unsigned int _Val,_locale_t _Locale);
   _CRTIMP errno_t __cdecl _wcsnset_s_l(wchar_t *_Str,size_t _SizeInChars,unsigned int _Val, size_t _Count,_locale_t _Locale);
 
+  __forceinline size_t __cdecl wcsnlen_s(const wchar_t * _src, size_t _count) {
+    return _src ? wcsnlen(_src, _count) : 0;
+  }
 #endif
 
 #ifndef _WTIME_S_DEFINED
@@ -156,7 +161,7 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
   _CRTIMP errno_t __cdecl wcsrtombs_s(size_t *_Retval,char *_Dst,size_t _SizeInBytes,const wchar_t **_Src,size_t _Size,mbstate_t *_State);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_1_3(errno_t,wcsrtombs_s,size_t,_Retval,char,_Dst,const wchar_t**,_Src,size_t,_Size,mbstate_t,_State)
 
-  errno_t __cdecl wmemcpy_s (wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
+  _CRTIMP errno_t __cdecl wmemcpy_s (wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
   _CRTIMP errno_t __cdecl wmemmove_s(wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
 
 #ifdef __cplusplus
