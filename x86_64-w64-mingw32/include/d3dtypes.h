@@ -29,6 +29,10 @@
 #include <float.h>
 #include <ddraw.h>
 
+#ifdef __i386__
+#include <pshpack4.h>
+#endif
+
 #define D3DVALP(val, prec)      ((float)(val))
 #define D3DVAL(val)             ((float)(val))
 #define D3DDivide(a, b)         (float)((double) (a) / (double) (b))
@@ -71,7 +75,7 @@ typedef LONG D3DFIXED;
 #define D3DENUMRET_CANCEL                        DDENUMRET_CANCEL
 #define D3DENUMRET_OK                            DDENUMRET_OK
 
-typedef HRESULT (CALLBACK *LPD3DVALIDATECALLBACK)(LPVOID lpUserArg, DWORD dwOffset);
+typedef HRESULT (CALLBACK *LPD3DVALIDATECALLBACK)(void *ctx, DWORD offset);
 typedef HRESULT (CALLBACK *LPD3DENUMTEXTUREFORMATSCALLBACK)(DDSURFACEDESC *surface_desc, void *ctx);
 typedef HRESULT (CALLBACK *LPD3DENUMPIXELFORMATSCALLBACK)(DDPIXELFORMAT *format, void *ctx);
 
@@ -468,9 +472,9 @@ typedef struct _D3DVIEWPORT7 {
 
 typedef struct _D3DTRANSFORMDATA {
   DWORD           dwSize;
-  LPVOID          lpIn;
+  void            *lpIn;
   DWORD           dwInSize;
-  LPVOID          lpOut;
+  void            *lpOut;
   DWORD           dwOutSize;
   D3DHVERTEX      *lpHOut;
   DWORD           dwClip;
@@ -1270,9 +1274,10 @@ typedef struct _D3DVERTEXBUFFERDESC {
 #define D3DFVF_TLVERTEX ( D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_SPECULAR | \
                           D3DFVF_TEX1 )
 
-typedef struct _D3DDP_PTRSTRIDE {
-  LPVOID lpvData;
-  DWORD  dwStride;
+typedef struct _D3DDP_PTRSTRIDE
+{
+  void *lpvData;
+  DWORD dwStride;
 } D3DDP_PTRSTRIDE;
 
 #define D3DDP_MAXTEXCOORD 8
@@ -1354,5 +1359,9 @@ typedef enum _D3DTEXTURETRANSFORMFLAGS {
 #define D3DFVF_TEXCOORDSIZE2(CoordIndex) (D3DFVF_TEXTUREFORMAT2)
 #define D3DFVF_TEXCOORDSIZE4(CoordIndex) (D3DFVF_TEXTUREFORMAT4 << (CoordIndex*2 + 16))
 #define D3DFVF_TEXCOORDSIZE1(CoordIndex) (D3DFVF_TEXTUREFORMAT1 << (CoordIndex*2 + 16))
+
+#ifdef __i386__
+#include <poppack.h>
+#endif
 
 #endif

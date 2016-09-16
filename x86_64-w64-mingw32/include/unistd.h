@@ -25,6 +25,18 @@
 #define STDERR_FILENO 2
 #endif
 
+/* Used by shutdown(2). */
+#ifdef _POSIX_SOURCE
+
+/* MySql connector already defined SHUT_RDWR. */
+#ifndef SHUT_RDWR
+#define SHUT_RD   0x00
+#define SHUT_WR   0x01
+#define SHUT_RDWR 0x02
+#endif
+
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -79,6 +91,11 @@ __CRT_INLINE int ftruncate(int __fd, _off_t __length)
 #ifndef _CRT_SWAB_DEFINED
 #define _CRT_SWAB_DEFINED /* Also in stdlib.h */
   void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
+
+#ifndef _CRT_GETPID_DEFINED
+#define _CRT_GETPID_DEFINED /* Also in process.h */
+  int __cdecl getpid(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifdef __cplusplus
