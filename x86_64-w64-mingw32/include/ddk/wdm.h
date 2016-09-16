@@ -1749,7 +1749,7 @@ typedef enum _EX_POOL_PRIORITY {
 #if !defined(_WIN64) && (defined(_NTDDK_) || defined(_NTIFS_) || defined(_NDIS_))
 #define LOOKASIDE_ALIGN
 #else
-#define LOOKASIDE_ALIGN /* FIXME: DECLSPEC_CACHEALIGN */
+#define LOOKASIDE_ALIGN DECLSPEC_CACHEALIGN
 #endif
 
 typedef struct _LOOKASIDE_LIST_EX *PLOOKASIDE_LIST_EX;
@@ -7544,13 +7544,17 @@ typedef struct _OBJECT_NAME_INFORMATION {
 } OBJECT_NAME_INFORMATION, *POBJECT_NAME_INFORMATION;
 
 /* Exported object types */
-extern POBJECT_TYPE NTSYSAPI CmKeyObjectType;
-extern POBJECT_TYPE NTSYSAPI ExEventObjectType;
-extern POBJECT_TYPE NTSYSAPI ExSemaphoreObjectType;
-extern POBJECT_TYPE NTSYSAPI IoFileObjectType;
-extern POBJECT_TYPE NTSYSAPI PsThreadType;
-extern POBJECT_TYPE NTSYSAPI SeTokenObjectType;
-extern POBJECT_TYPE NTSYSAPI PsProcessType;
+extern POBJECT_TYPE NTSYSAPI *CmKeyObjectType;
+extern POBJECT_TYPE NTSYSAPI *ExEventObjectType;
+extern POBJECT_TYPE NTSYSAPI *ExSemaphoreObjectType;
+extern POBJECT_TYPE NTSYSAPI *IoFileObjectType;
+extern POBJECT_TYPE NTSYSAPI *PsThreadType;
+extern POBJECT_TYPE NTSYSAPI *SeTokenObjectType;
+extern POBJECT_TYPE NTSYSAPI *PsProcessType;
+extern POBJECT_TYPE NTSYSAPI *TmEnlistmentObjectType;
+extern POBJECT_TYPE NTSYSAPI *TmResourceManagerObjectType;
+extern POBJECT_TYPE NTSYSAPI *TmTransactionManagerObjectType;
+extern POBJECT_TYPE NTSYSAPI *TmTransactionObjectType;
 
 /******************************************************************************
  *                           Process Manager Types                            *
@@ -10539,9 +10543,11 @@ KeFlushWriteBuffer(VOID);
 /* ULONG
  * BYTES_TO_PAGES(
  *   IN ULONG Size)
+ *
+ * Note: This needs to be like this to avoid overflows!
  */
 #define BYTES_TO_PAGES(Size) \
-  (((Size) + PAGE_SIZE - 1) >> PAGE_SHIFT)
+  (((Size) >> PAGE_SHIFT) + (((Size) & (PAGE_SIZE - 1)) != 0))
 
 /* PVOID
  * PAGE_ALIGN(

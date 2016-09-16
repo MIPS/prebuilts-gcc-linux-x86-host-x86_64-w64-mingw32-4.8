@@ -656,7 +656,7 @@ namespace std
 /* #undef _GLIBCXX_HAVE_ICONV */
 
 /* Define to 1 if you have the <ieeefp.h> header file. */
-/* #undef _GLIBCXX_HAVE_IEEEFP_H */
+#define _GLIBCXX_HAVE_IEEEFP_H 1
 
 /* Define if int64_t is available in <stdint.h>. */
 #define _GLIBCXX_HAVE_INT64_T 1
@@ -1190,7 +1190,7 @@ namespace std
 #define _GLIBCXX_FULLY_DYNAMIC_STRING 0
 
 /* Define if gthreads library is available. */
-/* #undef _GLIBCXX_HAS_GTHREADS */
+#define _GLIBCXX_HAS_GTHREADS 1
 
 /* Define to 1 if a full hosted library is built, or 0 if freestanding. */
 #define _GLIBCXX_HOSTED 1
@@ -1313,7 +1313,7 @@ namespace std
 /* #undef _GLIBCXX_USE_NLS */
 
 /* Define if pthreads_num_processors_np is available in <pthread.h>. */
-/* #undef _GLIBCXX_USE_PTHREADS_NUM_PROCESSORS_NP */
+#define _GLIBCXX_USE_PTHREADS_NUM_PROCESSORS_NP 1
 
 /* Define if /dev/random and /dev/urandom are available for the random_device
    of TR1 (Chapter 5.1). */
