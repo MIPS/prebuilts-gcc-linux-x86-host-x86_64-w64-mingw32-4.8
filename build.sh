@@ -24,27 +24,6 @@ PROGDIR=$(cd $PROGDIR && pwd)
 ANDROID_BUILD_TOP=$(realpath $PROGDIR/../..)
 TOOLCHAIN_DIR=$(realpath $ANDROID_BUILD_TOP/toolchain)
 
-# Top level out directory.
-OUT_DIR=$ANDROID_BUILD_TOP/out
-
-# Name of the directory inside the package.
-PACKAGE_DIR=x86_64-w64-mingw32-4.8
-
-# Directory to isolate the install package from any similarly named directories.
-OUTER_INSTALL_DIR=$OUT_DIR/install
-
-# Actual install path.
-INSTALL_DIR=$OUTER_INSTALL_DIR/$PACKAGE_DIR
-
-# Install directory for build dependencies that are not in the final package
-# (gmp and whatnot).
-SUPPORT_DIR=$INSTALL_DIR
-
-# For the final artifacts. Will be archived on the build server.
-if [ -z "$DIST_DIR" ]; then
-  DIST_DIR=$OUT_DIR/dist
-fi
-
 HELP=
 VERBOSE=2
 
@@ -106,7 +85,6 @@ log ()
     fi
 }
 
-ARCH=x86_64
 NUM_CORES=$(grep -c -e '^processor' /proc/cpuinfo)
 JOBS=$(( $NUM_CORES * 2 ))
 
@@ -115,13 +93,13 @@ MPFR_VERSION=3.1.1
 MPC_VERSION=1.0.1
 BINUTILS_VERSION=2.25
 GCC_VERSION=4.8.3
-MINGW_W64_VERSION=v4.0.4
+MINGW_W64_VERSION=v5.0.0
 
 TARGET_ARCH=x86_64
 TARGET_MULTILIBS=true  # not empty to enable multilib
-FORCE_ALL=true
-FORCE_BUILD=true
 CLEANUP=
+
+OPT_GCC_VERSION=
 
 for opt; do
     optarg=`expr "x$opt" : 'x[^=]*=\(.*\)'`
@@ -132,6 +110,7 @@ for opt; do
         -j*|--jobs=*) JOBS=$optarg;;
         --target-arch=*) TARGET_ARCH=$optarg;;
         --no-multilib) TARGET_MULTILIBS="";;
+        --gcc-version=*) OPT_GCC_VERSION=$optarg;;
         --cleanup) CLEANUP=true;;
         -*) panic "Unknown option '$opt', see --help for list of valid ones.";;
         *) panic "This script doesn't take any parameter, see --help for details.";;
@@ -156,9 +135,41 @@ Valid options:
   -j<num>                      Same as --jobs=<num>."
   --no-multilib                Disable multilib toolchain build."
   --target-arch=<arch>         Select default target architecture [$TARGET_ARCH]."
-
+  --gcc-version=<version>      Select alternative GCC version [$GCC_VERSION]"
 EOF
     exit 0
+fi
+
+if [ "$OPT_GCC_VERSION" ]; then
+    GCC_VERSION=$OPT_GCC_VERSION
+fi
+
+GCC_SRC_DIR=$TOOLCHAIN_DIR/gcc/gcc-$GCC_VERSION
+if [ ! -d "$GCC_SRC_DIR" ]; then
+    panic "Missing GCC source directory: $GCC_SRC_DIR"
+fi
+
+GCC_MAJOR_MINOR=$(echo "$GCC_VERSION" | cut -d. -f1-2)
+
+# Top level out directory.
+OUT_DIR=$ANDROID_BUILD_TOP/out
+
+# Name of the directory inside the package.
+PACKAGE_DIR=x86_64-w64-mingw32-$GCC_MAJOR_MINOR
+
+# Directory to isolate the install package from any similarly named directories.
+OUTER_INSTALL_DIR=$OUT_DIR/install
+
+# Actual install path.
+INSTALL_DIR=$OUTER_INSTALL_DIR/$PACKAGE_DIR
+
+# Install directory for build dependencies that are not in the final package
+# (gmp and whatnot).
+SUPPORT_DIR=$INSTALL_DIR
+
+# For the final artifacts. Will be archived on the build server.
+if [ -z "$DIST_DIR" ]; then
+  DIST_DIR=$OUT_DIR/dist
 fi
 
 BUILD_TAG64=x86_64-linux-gnu
@@ -326,6 +337,7 @@ if [ "$TARGET_MULTILIBS" ]; then
 fi
 
 var_append BINUTILS_CONFIGURE_OPTIONS "--with-sysroot=$INSTALL_DIR"
+var_append BINUTILS_CONFIGURE_OPTIONS "--enable-lto --enable-plugin --enable-gold"
 
 build_binutils_package binutils-$BINUTILS_VERSION $BINUTILS_CONFIGURE_OPTIONS
 
@@ -398,7 +410,7 @@ build_mingw_headers ()
         cd $OUT_DIR/$PKGNAME &&
         log "$PKGNAME: Configuring" &&
         run $MINGW_W64_SRC/mingw-w64-headers/configure --prefix=$PREFIX_FOR_TARGET --host=$TARGET_TAG \
-            --build=$HOST_TAG --with-widl=$WITH_WIDL --enable-sdk=all --enable-secure-api
+            --build=$HOST_TAG --enable-sdk=all --enable-secure-api
         fail_panic "Can't configure mingw-64-headers"
 
         run make
@@ -493,7 +505,6 @@ var_append GCC_CONFIGURE_OPTIONS "--enable-languages=c,c++"
 var_append GCC_CONFIGURE_OPTIONS "--with-sysroot=$INSTALL_DIR"
 var_append GCC_CONFIGURE_OPTIONS "--enable-threads=posix"
 
-# A bug in MinGW-w64 forces us to build and use widl.
 build_mingw_tools mingw-w64-tools
 build_mingw_headers mingw-w64-headers
 
@@ -514,7 +525,7 @@ build_libgcc gcc-$GCC_VERSION
 # Let's generate the licenses/ directory
 LICENSE_DIRS="$SRC_DIR"
 var_append LICENSE_DIRS "$TOOLCHAIN_DIR/binutils/binutils-$BINUTILS_VERSION"
-var_append LICENSE_DIRS "$TOOLCHAIN_DIR/gcc/gcc-$GCC_VERSION"
+var_append LICENSE_DIRS "$GCC_SRC_DIR"
 var_append LICENSE_DIRS "$EXTRACTED_PACKAGES"
 
 echo > $INSTALL_DIR/NOTICE
