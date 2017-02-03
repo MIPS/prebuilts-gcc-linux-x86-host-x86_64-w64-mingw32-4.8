@@ -816,6 +816,9 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define PRODUCT_CORE                              0x65
 #define PRODUCT_PROFESSIONAL_WMC                  0x67
 #define PRODUCT_MOBILE_CORE                       0x68
+#define PRODUCT_EDUCATION                         0x79
+#define PRODUCT_EDUCATION_N                       0x7a
+#define PRODUCT_MOBILE_ENTERPRISE                 0x85
 
 #define PRODUCT_UNLICENSED                        0xabcdabcd
 
@@ -1498,20 +1501,15 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
     /* LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value); moved to psdk_inc/intrin-impl.h */
     /* LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand); moved to psdk_inc/intrin-impl.h */
-    LONG InterlockedAdd(LONG volatile *Addend,LONG Value);
+    /* LONG InterlockedAdd(LONG volatile *Addend,LONG Value); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedIncrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedDecrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value); moved to psdk_inc/intrin-impl.h */
-
-    __forceinline LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
-
     /* LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value); moved to psdk_inc/intrin-impl.h */
-    LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value);
+    /* LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand); moved to psdk_inc/intrin-impl.h */
     /* PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand); moved to psdk_inc/intrin-impl.h */
     /* PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value); moved to psdk_inc/intrin-impl.h */
-
-    __forceinline LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value) { return InterlockedExchangeAdd64(Addend,Value) + Value; }
 
 #define CacheLineFlush(Address) _mm_clflush(Address)
 
@@ -1958,6 +1956,8 @@ extern "C" {
 #define BitScanReverse _BitScanReverse
 
 #define InterlockedCompareExchange16 _InterlockedCompareExchange16
+#define InterlockedAdd _InterlockedAdd
+#define InterlockedAdd64 _InterlockedAdd64
 
 #ifdef _PREFIX_
     /* BYTE __readfsbyte(DWORD Offset); moved to psdk_inc/intrin-impl.h */
@@ -1998,15 +1998,15 @@ __buildmemorybarrier()
 
 #define DbgRaiseAssertionFailure __int2c
 
-  __CRT_INLINE struct _TEB *NtCurrentTeb(void)
+  FORCEINLINE struct _TEB *NtCurrentTeb(void)
   {
     return (struct _TEB *)__readfsdword(PcTeb);
   }
-  __CRT_INLINE PVOID GetCurrentFiber(void)
+  FORCEINLINE PVOID GetCurrentFiber(void)
   {
     return(PVOID)__readfsdword(0x10);
   }
-  __CRT_INLINE PVOID GetFiberData(void)
+  FORCEINLINE PVOID GetFiberData(void)
   {
       return *(PVOID *)GetCurrentFiber();
   }
@@ -5881,6 +5881,7 @@ __buildmemorybarrier()
 #define IMAGE_SUBSYSTEM_XBOX 14
 #define IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION 16
 
+#define IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA 0x0020
 #define IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE 0x0040
 #define IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY 0x0080
 #define IMAGE_DLLCHARACTERISTICS_NX_COMPAT 0x0100
@@ -5889,6 +5890,7 @@ __buildmemorybarrier()
 #define IMAGE_DLLCHARACTERISTICS_NO_BIND 0x0800
 #define IMAGE_DLLCHARACTERISTICS_APPCONTAINER 0x1000
 #define IMAGE_DLLCHARACTERISTICS_WDM_DRIVER 0x2000
+#define IMAGE_DLLCHARACTERISTICS_GUARD_CF 0x4000
 #define IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE 0x8000
 
 #define IMAGE_DIRECTORY_ENTRY_EXPORT 0
@@ -8365,6 +8367,10 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     struct _TEB *NtCurrentTeb (VOID);
     PVOID GetCurrentFiber (VOID);
     PVOID GetFiberData (VOID);
+    FORCEINLINE struct _TEB *NtCurrentTeb(VOID) { struct _TEB *teb;
+    __asm ("mrc p15, 0, %0, c13, c0, 2" : "=r" (teb));
+    return teb; }
+    FORCEINLINE PVOID GetCurrentFiber(VOID) { return (PVOID)(((PNT_TIB)NtCurrentTeb())->FiberData); }
     FORCEINLINE PVOID GetFiberData (VOID) { return *(PVOID *)GetCurrentFiber (); }
 #endif /* arm */
 
