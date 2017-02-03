@@ -36,7 +36,7 @@ struct _exception;
 #endif
 #endif
 
-#if !defined(__STRICT_ANSI__) || defined(_XOPEN_SOURCE) || defined(_GNU_SOURCE) || defined(_BSD_SOURCE) || defined(_USE_MATH_DEFINES)
+#if !defined(__STRICT_ANSI__) || defined(_POSIX_C_SOURCE) || defined(_POSIX_SOURCE) || defined(_XOPEN_SOURCE) || defined(_GNU_SOURCE) || defined(_BSD_SOURCE) || defined(_USE_MATH_DEFINES)
 #define M_E		2.7182818284590452354
 #define M_LOG2E		1.4426950408889634074
 #define M_LOG10E	0.43429448190325182765
@@ -207,7 +207,7 @@ extern "C" {
 #if !defined (__ia64__)
   __CRT_INLINE float __cdecl fabsf (float x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__arm__)
     return __builtin_fabsf (x);
 #else
     float res = 0.0F;
@@ -218,14 +218,18 @@ extern "C" {
 
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
+#ifdef __arm__
+    return __builtin_fabsl (x);
+#else
     long double res = 0.0l;
     __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
+#endif
   }
 
   __CRT_INLINE double __cdecl fabs (double x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__arm__)
     return __builtin_fabs (x);
 #else
     double res = 0.0;
@@ -424,20 +428,7 @@ typedef long double double_t;
               FP_INFINITE : FP_NAN);
     return FP_NORMAL;
 #elif defined(__arm__) || defined(_ARM_)
-    __mingw_fp_types_t hlp;
-    unsigned int l, h;
-
-    hlp.d = &x;
-    h = hlp.ldt->lh.high;
-    l = hlp.ldt->lh.low | (h & 0xfffff);
-    h &= 0x7ff00000;
-    if ((h | l) == 0)
-      return FP_ZERO;
-    if (!h)
-      return FP_SUBNORMAL;
-    if (h == 0x7ff00000)
-      return (l ? FP_NAN : FP_INFINITE);
-    return FP_NORMAL;
+    return __fpclassify(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
@@ -584,15 +575,7 @@ __mingw_choose_expr (                                         \
     signexp = 0xfffe - signexp;
     return (int) ((unsigned int) signexp) >> 16;
 #elif defined(__arm__) || defined(_ARM_)
-    __mingw_fp_types_t hlp;
-    int l, h;
-
-    hlp.d = &_x;
-    l = hlp.dt->lh.low;
-    h = hlp.dt->lh.high & 0x7fffffff;
-    h |= (unsigned int) (l | -l) >> 31;
-    h = 0x7ff00000 - h;
-    return (int) ((unsigned int) h) >> 31;
+    __isnan(_x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
@@ -656,10 +639,7 @@ __mingw_choose_expr (                                         \
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
 #elif defined(__arm__) || defined(_ARM_)
-    __mingw_fp_types_t hlp;
-
-    hlp.d = &x;
-    return ((hlp.dt->lh.high & 0x80000000) != 0);
+    __signbit(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
