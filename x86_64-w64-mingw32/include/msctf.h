@@ -17,9 +17,24 @@
 
 /* Forward declarations */
 
+#ifndef __ITfFunctionProvider_FWD_DEFINED__
+#define __ITfFunctionProvider_FWD_DEFINED__
+typedef interface ITfFunctionProvider ITfFunctionProvider;
+#endif
+
+#ifndef __IEnumTfFunctionProviders_FWD_DEFINED__
+#define __IEnumTfFunctionProviders_FWD_DEFINED__
+typedef interface IEnumTfFunctionProviders IEnumTfFunctionProviders;
+#endif
+
 #ifndef __ITfThreadMgr_FWD_DEFINED__
 #define __ITfThreadMgr_FWD_DEFINED__
 typedef interface ITfThreadMgr ITfThreadMgr;
+#endif
+
+#ifndef __ITfThreadMgrEx_FWD_DEFINED__
+#define __ITfThreadMgrEx_FWD_DEFINED__
+typedef interface ITfThreadMgrEx ITfThreadMgrEx;
 #endif
 
 #ifndef __ITfCompositionView_FWD_DEFINED__
@@ -30,6 +45,26 @@ typedef interface ITfCompositionView ITfCompositionView;
 #ifndef __ITfDocumentMgr_FWD_DEFINED__
 #define __ITfDocumentMgr_FWD_DEFINED__
 typedef interface ITfDocumentMgr ITfDocumentMgr;
+#endif
+
+#ifndef __ITfContextView_FWD_DEFINED__
+#define __ITfContextView_FWD_DEFINED__
+typedef interface ITfContextView ITfContextView;
+#endif
+
+#ifndef __IEnumTfContextViews_FWD_DEFINED__
+#define __IEnumTfContextViews_FWD_DEFINED__
+typedef interface IEnumTfContextViews IEnumTfContextViews;
+#endif
+
+#ifndef __IEnumTfProperties_FWD_DEFINED__
+#define __IEnumTfProperties_FWD_DEFINED__
+typedef interface IEnumTfProperties IEnumTfProperties;
+#endif
+
+#ifndef __ITfRangeBackup_FWD_DEFINED__
+#define __ITfRangeBackup_FWD_DEFINED__
+typedef interface ITfRangeBackup ITfRangeBackup;
 #endif
 
 #ifndef __ITfContext_FWD_DEFINED__
@@ -75,6 +110,16 @@ typedef interface ITfDisplayAttributeMgr ITfDisplayAttributeMgr;
 #ifndef __ITfCategoryMgr_FWD_DEFINED__
 #define __ITfCategoryMgr_FWD_DEFINED__
 typedef interface ITfCategoryMgr ITfCategoryMgr;
+#endif
+
+#ifndef __IEnumTfRanges_FWD_DEFINED__
+#define __IEnumTfRanges_FWD_DEFINED__
+typedef interface IEnumTfRanges IEnumTfRanges;
+#endif
+
+#ifndef __ITfEditRecord_FWD_DEFINED__
+#define __ITfEditRecord_FWD_DEFINED__
+typedef interface ITfEditRecord ITfEditRecord;
 #endif
 
 #ifndef __ITfTextEditSink_FWD_DEFINED__
@@ -157,11 +202,6 @@ typedef interface ITfInsertAtSelection ITfInsertAtSelection;
 typedef interface ITfPropertyStore ITfPropertyStore;
 #endif
 
-#ifndef __IEnumTfRanges_FWD_DEFINED__
-#define __IEnumTfRanges_FWD_DEFINED__
-typedef interface IEnumTfRanges IEnumTfRanges;
-#endif
-
 #ifndef __IEnumITfCompositionView_FWD_DEFINED__
 #define __IEnumITfCompositionView_FWD_DEFINED__
 typedef interface IEnumITfCompositionView IEnumITfCompositionView;
@@ -232,6 +272,21 @@ typedef interface IEnumTfContexts IEnumTfContexts;
 typedef interface IEnumTfDocumentMgrs IEnumTfDocumentMgrs;
 #endif
 
+#ifndef __ITfUIElement_FWD_DEFINED__
+#define __ITfUIElement_FWD_DEFINED__
+typedef interface ITfUIElement ITfUIElement;
+#endif
+
+#ifndef __IEnumTfUIElements_FWD_DEFINED__
+#define __IEnumTfUIElements_FWD_DEFINED__
+typedef interface IEnumTfUIElements IEnumTfUIElements;
+#endif
+
+#ifndef __ITfUIElementMgr_FWD_DEFINED__
+#define __ITfUIElementMgr_FWD_DEFINED__
+typedef interface ITfUIElementMgr ITfUIElementMgr;
+#endif
+
 #ifndef __ITfSourceSingle_FWD_DEFINED__
 #define __ITfSourceSingle_FWD_DEFINED__
 typedef interface ITfSourceSingle ITfSourceSingle;
@@ -273,7 +328,6 @@ typedef interface ITfMouseTrackerACP ITfMouseTrackerACP;
 extern "C" {
 #endif
 
-#include <winuser.h>
 #define TF_E_STACKFULL MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0501)
 #define TF_E_DISCONNECTED    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0504)
 #define TF_E_ALREADY_EXISTS  MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0506)
@@ -344,16 +398,6 @@ typedef interface IEnumTfDocumentMgrs IEnumTfDocumentMgrs;
 typedef interface IEnumTfContexts IEnumTfContexts;
 #endif
 
-#ifndef __ITfFunctionProvider_FWD_DEFINED__
-#define __ITfFunctionProvider_FWD_DEFINED__
-typedef interface ITfFunctionProvider ITfFunctionProvider;
-#endif
-
-#ifndef __IEnumTfFunctionProviders_FWD_DEFINED__
-#define __IEnumTfFunctionProviders_FWD_DEFINED__
-typedef interface IEnumTfFunctionProviders IEnumTfFunctionProviders;
-#endif
-
 #ifndef __ITfCompartmentMgr_FWD_DEFINED__
 #define __ITfCompartmentMgr_FWD_DEFINED__
 typedef interface ITfCompartmentMgr ITfCompartmentMgr;
@@ -369,16 +413,6 @@ typedef interface ITfEditSession ITfEditSession;
 typedef interface ITfRange ITfRange;
 #endif
 
-#ifndef __ITfContextView_FWD_DEFINED__
-#define __ITfContextView_FWD_DEFINED__
-typedef interface ITfContextView ITfContextView;
-#endif
-
-#ifndef __IEnumTfContextViews_FWD_DEFINED__
-#define __IEnumTfContextViews_FWD_DEFINED__
-typedef interface IEnumTfContextViews IEnumTfContextViews;
-#endif
-
 #ifndef __ITfProperty_FWD_DEFINED__
 #define __ITfProperty_FWD_DEFINED__
 typedef interface ITfProperty ITfProperty;
@@ -389,24 +423,9 @@ typedef interface ITfProperty ITfProperty;
 typedef interface ITfReadOnlyProperty ITfReadOnlyProperty;
 #endif
 
-#ifndef __IEnumTfProperties_FWD_DEFINED__
-#define __IEnumTfProperties_FWD_DEFINED__
-typedef interface IEnumTfProperties IEnumTfProperties;
-#endif
-
-#ifndef __ITfRangeBackup_FWD_DEFINED__
-#define __ITfRangeBackup_FWD_DEFINED__
-typedef interface ITfRangeBackup ITfRangeBackup;
-#endif
-
 #ifndef __IEnumTfLanguageProfiles_FWD_DEFINED__
 #define __IEnumTfLanguageProfiles_FWD_DEFINED__
 typedef interface IEnumTfLanguageProfiles IEnumTfLanguageProfiles;
-#endif
-
-#ifndef __ITfEditRecord_FWD_DEFINED__
-#define __ITfEditRecord_FWD_DEFINED__
-typedef interface ITfEditRecord ITfEditRecord;
 #endif
 
 #ifndef __ITfCompositionView_FWD_DEFINED__
@@ -445,6 +464,279 @@ typedef enum __WIDL_msctf_generated_name_00000005 {
     TF_ANCHOR_START = 0,
     TF_ANCHOR_END = 1
 } TfAnchor;
+/*****************************************************************************
+ * ITfFunctionProvider interface
+ */
+#ifndef __ITfFunctionProvider_INTERFACE_DEFINED__
+#define __ITfFunctionProvider_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfFunctionProvider, 0x101d6610, 0x0990, 0x11d3, 0x8d,0xf0, 0x00,0x10,0x5a,0x27,0x99,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("101d6610-0990-11d3-8df0-00105a2799b5")
+ITfFunctionProvider : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetType(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDescription(
+        BSTR *desc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFunction(
+        REFGUID guid,
+        REFIID riid,
+        IUnknown **func) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfFunctionProvider, 0x101d6610, 0x0990, 0x11d3, 0x8d,0xf0, 0x00,0x10,0x5a,0x27,0x99,0xb5)
+#endif
+#else
+typedef struct ITfFunctionProviderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfFunctionProvider* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfFunctionProvider* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfFunctionProvider* This);
+
+    /*** ITfFunctionProvider methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetType)(
+        ITfFunctionProvider* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *GetDescription)(
+        ITfFunctionProvider* This,
+        BSTR *desc);
+
+    HRESULT (STDMETHODCALLTYPE *GetFunction)(
+        ITfFunctionProvider* This,
+        REFGUID guid,
+        REFIID riid,
+        IUnknown **func);
+
+    END_INTERFACE
+} ITfFunctionProviderVtbl;
+interface ITfFunctionProvider {
+    CONST_VTBL ITfFunctionProviderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfFunctionProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfFunctionProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfFunctionProvider_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfFunctionProvider methods ***/
+#define ITfFunctionProvider_GetType(This,guid) (This)->lpVtbl->GetType(This,guid)
+#define ITfFunctionProvider_GetDescription(This,desc) (This)->lpVtbl->GetDescription(This,desc)
+#define ITfFunctionProvider_GetFunction(This,guid,riid,func) (This)->lpVtbl->GetFunction(This,guid,riid,func)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfFunctionProvider_QueryInterface(ITfFunctionProvider* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfFunctionProvider_AddRef(ITfFunctionProvider* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfFunctionProvider_Release(ITfFunctionProvider* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfFunctionProvider methods ***/
+static FORCEINLINE HRESULT ITfFunctionProvider_GetType(ITfFunctionProvider* This,GUID *guid) {
+    return This->lpVtbl->GetType(This,guid);
+}
+static FORCEINLINE HRESULT ITfFunctionProvider_GetDescription(ITfFunctionProvider* This,BSTR *desc) {
+    return This->lpVtbl->GetDescription(This,desc);
+}
+static FORCEINLINE HRESULT ITfFunctionProvider_GetFunction(ITfFunctionProvider* This,REFGUID guid,REFIID riid,IUnknown **func) {
+    return This->lpVtbl->GetFunction(This,guid,riid,func);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfFunctionProvider_GetType_Proxy(
+    ITfFunctionProvider* This,
+    GUID *guid);
+void __RPC_STUB ITfFunctionProvider_GetType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfFunctionProvider_GetDescription_Proxy(
+    ITfFunctionProvider* This,
+    BSTR *desc);
+void __RPC_STUB ITfFunctionProvider_GetDescription_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfFunctionProvider_GetFunction_Proxy(
+    ITfFunctionProvider* This,
+    REFGUID guid,
+    REFIID riid,
+    IUnknown **func);
+void __RPC_STUB ITfFunctionProvider_GetFunction_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfFunctionProvider_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumTfFunctionProviders interface
+ */
+#ifndef __IEnumTfFunctionProviders_INTERFACE_DEFINED__
+#define __IEnumTfFunctionProviders_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumTfFunctionProviders, 0xe4b24db0, 0x0990, 0x11d3, 0x8d,0xf0, 0x00,0x10,0x5a,0x27,0x99,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e4b24db0-0990-11d3-8df0-00105a2799b5")
+IEnumTfFunctionProviders : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumTfFunctionProviders **ret) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG count,
+        ITfFunctionProvider **prov,
+        ULONG *fetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG count) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumTfFunctionProviders, 0xe4b24db0, 0x0990, 0x11d3, 0x8d,0xf0, 0x00,0x10,0x5a,0x27,0x99,0xb5)
+#endif
+#else
+typedef struct IEnumTfFunctionProvidersVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumTfFunctionProviders* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumTfFunctionProviders* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumTfFunctionProviders* This);
+
+    /*** IEnumTfFunctionProviders methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumTfFunctionProviders* This,
+        IEnumTfFunctionProviders **ret);
+
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumTfFunctionProviders* This,
+        ULONG count,
+        ITfFunctionProvider **prov,
+        ULONG *fetched);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumTfFunctionProviders* This);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumTfFunctionProviders* This,
+        ULONG count);
+
+    END_INTERFACE
+} IEnumTfFunctionProvidersVtbl;
+interface IEnumTfFunctionProviders {
+    CONST_VTBL IEnumTfFunctionProvidersVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IEnumTfFunctionProviders_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumTfFunctionProviders_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumTfFunctionProviders_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumTfFunctionProviders methods ***/
+#define IEnumTfFunctionProviders_Clone(This,ret) (This)->lpVtbl->Clone(This,ret)
+#define IEnumTfFunctionProviders_Next(This,count,prov,fetched) (This)->lpVtbl->Next(This,count,prov,fetched)
+#define IEnumTfFunctionProviders_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumTfFunctionProviders_Skip(This,count) (This)->lpVtbl->Skip(This,count)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfFunctionProviders_QueryInterface(IEnumTfFunctionProviders* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfFunctionProviders_AddRef(IEnumTfFunctionProviders* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfFunctionProviders_Release(IEnumTfFunctionProviders* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfFunctionProviders methods ***/
+static FORCEINLINE HRESULT IEnumTfFunctionProviders_Clone(IEnumTfFunctionProviders* This,IEnumTfFunctionProviders **ret) {
+    return This->lpVtbl->Clone(This,ret);
+}
+static FORCEINLINE HRESULT IEnumTfFunctionProviders_Next(IEnumTfFunctionProviders* This,ULONG count,ITfFunctionProvider **prov,ULONG *fetched) {
+    return This->lpVtbl->Next(This,count,prov,fetched);
+}
+static FORCEINLINE HRESULT IEnumTfFunctionProviders_Reset(IEnumTfFunctionProviders* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfFunctionProviders_Skip(IEnumTfFunctionProviders* This,ULONG count) {
+    return This->lpVtbl->Skip(This,count);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumTfFunctionProviders_Clone_Proxy(
+    IEnumTfFunctionProviders* This,
+    IEnumTfFunctionProviders **ret);
+void __RPC_STUB IEnumTfFunctionProviders_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfFunctionProviders_Next_Proxy(
+    IEnumTfFunctionProviders* This,
+    ULONG count,
+    ITfFunctionProvider **prov,
+    ULONG *fetched);
+void __RPC_STUB IEnumTfFunctionProviders_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfFunctionProviders_Reset_Proxy(
+    IEnumTfFunctionProviders* This);
+void __RPC_STUB IEnumTfFunctionProviders_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfFunctionProviders_Skip_Proxy(
+    IEnumTfFunctionProviders* This,
+    ULONG count);
+void __RPC_STUB IEnumTfFunctionProviders_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumTfFunctionProviders_INTERFACE_DEFINED__ */
+
 /*****************************************************************************
  * ITfThreadMgr interface
  */
@@ -725,6 +1017,205 @@ void __RPC_STUB ITfThreadMgr_GetGlobalCompartment_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfThreadMgr_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfThreadMgrEx interface
+ */
+#ifndef __ITfThreadMgrEx_INTERFACE_DEFINED__
+#define __ITfThreadMgrEx_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfThreadMgrEx, 0x3e90ade3, 0x7594, 0x4cb0, 0xbb,0x58, 0x69,0x62,0x8f,0x5f,0x45,0x8c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3e90ade3-7594-4cb0-bb58-69628f5f458c")
+ITfThreadMgrEx : public ITfThreadMgr
+{
+    virtual HRESULT STDMETHODCALLTYPE ActivateEx(
+        TfClientId *id,
+        DWORD flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetActiveFlags(
+        DWORD *flags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfThreadMgrEx, 0x3e90ade3, 0x7594, 0x4cb0, 0xbb,0x58, 0x69,0x62,0x8f,0x5f,0x45,0x8c)
+#endif
+#else
+typedef struct ITfThreadMgrExVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfThreadMgrEx* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfThreadMgrEx* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfThreadMgrEx* This);
+
+    /*** ITfThreadMgr methods ***/
+    HRESULT (STDMETHODCALLTYPE *Activate)(
+        ITfThreadMgrEx* This,
+        TfClientId *ptid);
+
+    HRESULT (STDMETHODCALLTYPE *Deactivate)(
+        ITfThreadMgrEx* This);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDocumentMgr)(
+        ITfThreadMgrEx* This,
+        ITfDocumentMgr **ppdim);
+
+    HRESULT (STDMETHODCALLTYPE *EnumDocumentMgrs)(
+        ITfThreadMgrEx* This,
+        IEnumTfDocumentMgrs **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocus)(
+        ITfThreadMgrEx* This,
+        ITfDocumentMgr **ppdimFocus);
+
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        ITfThreadMgrEx* This,
+        ITfDocumentMgr *pdimFocus);
+
+    HRESULT (STDMETHODCALLTYPE *AssociateFocus)(
+        ITfThreadMgrEx* This,
+        HWND hwnd,
+        ITfDocumentMgr *pdimNew,
+        ITfDocumentMgr **ppdimPrev);
+
+    HRESULT (STDMETHODCALLTYPE *IsThreadFocus)(
+        ITfThreadMgrEx* This,
+        WINBOOL *pfThreadFocus);
+
+    HRESULT (STDMETHODCALLTYPE *GetFunctionProvider)(
+        ITfThreadMgrEx* This,
+        REFCLSID clsid,
+        ITfFunctionProvider **ppFuncProv);
+
+    HRESULT (STDMETHODCALLTYPE *EnumFunctionProviders)(
+        ITfThreadMgrEx* This,
+        IEnumTfFunctionProviders **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *GetGlobalCompartment)(
+        ITfThreadMgrEx* This,
+        ITfCompartmentMgr **ppCompMgr);
+
+    /*** ITfThreadMgrEx methods ***/
+    HRESULT (STDMETHODCALLTYPE *ActivateEx)(
+        ITfThreadMgrEx* This,
+        TfClientId *id,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *GetActiveFlags)(
+        ITfThreadMgrEx* This,
+        DWORD *flags);
+
+    END_INTERFACE
+} ITfThreadMgrExVtbl;
+interface ITfThreadMgrEx {
+    CONST_VTBL ITfThreadMgrExVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfThreadMgrEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfThreadMgrEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfThreadMgrEx_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfThreadMgr methods ***/
+#define ITfThreadMgrEx_Activate(This,ptid) (This)->lpVtbl->Activate(This,ptid)
+#define ITfThreadMgrEx_Deactivate(This) (This)->lpVtbl->Deactivate(This)
+#define ITfThreadMgrEx_CreateDocumentMgr(This,ppdim) (This)->lpVtbl->CreateDocumentMgr(This,ppdim)
+#define ITfThreadMgrEx_EnumDocumentMgrs(This,ppEnum) (This)->lpVtbl->EnumDocumentMgrs(This,ppEnum)
+#define ITfThreadMgrEx_GetFocus(This,ppdimFocus) (This)->lpVtbl->GetFocus(This,ppdimFocus)
+#define ITfThreadMgrEx_SetFocus(This,pdimFocus) (This)->lpVtbl->SetFocus(This,pdimFocus)
+#define ITfThreadMgrEx_AssociateFocus(This,hwnd,pdimNew,ppdimPrev) (This)->lpVtbl->AssociateFocus(This,hwnd,pdimNew,ppdimPrev)
+#define ITfThreadMgrEx_IsThreadFocus(This,pfThreadFocus) (This)->lpVtbl->IsThreadFocus(This,pfThreadFocus)
+#define ITfThreadMgrEx_GetFunctionProvider(This,clsid,ppFuncProv) (This)->lpVtbl->GetFunctionProvider(This,clsid,ppFuncProv)
+#define ITfThreadMgrEx_EnumFunctionProviders(This,ppEnum) (This)->lpVtbl->EnumFunctionProviders(This,ppEnum)
+#define ITfThreadMgrEx_GetGlobalCompartment(This,ppCompMgr) (This)->lpVtbl->GetGlobalCompartment(This,ppCompMgr)
+/*** ITfThreadMgrEx methods ***/
+#define ITfThreadMgrEx_ActivateEx(This,id,flags) (This)->lpVtbl->ActivateEx(This,id,flags)
+#define ITfThreadMgrEx_GetActiveFlags(This,flags) (This)->lpVtbl->GetActiveFlags(This,flags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEx_QueryInterface(ITfThreadMgrEx* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfThreadMgrEx_AddRef(ITfThreadMgrEx* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfThreadMgrEx_Release(ITfThreadMgrEx* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfThreadMgr methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEx_Activate(ITfThreadMgrEx* This,TfClientId *ptid) {
+    return This->lpVtbl->Activate(This,ptid);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_Deactivate(ITfThreadMgrEx* This) {
+    return This->lpVtbl->Deactivate(This);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_CreateDocumentMgr(ITfThreadMgrEx* This,ITfDocumentMgr **ppdim) {
+    return This->lpVtbl->CreateDocumentMgr(This,ppdim);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_EnumDocumentMgrs(ITfThreadMgrEx* This,IEnumTfDocumentMgrs **ppEnum) {
+    return This->lpVtbl->EnumDocumentMgrs(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetFocus(ITfThreadMgrEx* This,ITfDocumentMgr **ppdimFocus) {
+    return This->lpVtbl->GetFocus(This,ppdimFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_SetFocus(ITfThreadMgrEx* This,ITfDocumentMgr *pdimFocus) {
+    return This->lpVtbl->SetFocus(This,pdimFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_AssociateFocus(ITfThreadMgrEx* This,HWND hwnd,ITfDocumentMgr *pdimNew,ITfDocumentMgr **ppdimPrev) {
+    return This->lpVtbl->AssociateFocus(This,hwnd,pdimNew,ppdimPrev);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_IsThreadFocus(ITfThreadMgrEx* This,WINBOOL *pfThreadFocus) {
+    return This->lpVtbl->IsThreadFocus(This,pfThreadFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetFunctionProvider(ITfThreadMgrEx* This,REFCLSID clsid,ITfFunctionProvider **ppFuncProv) {
+    return This->lpVtbl->GetFunctionProvider(This,clsid,ppFuncProv);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_EnumFunctionProviders(ITfThreadMgrEx* This,IEnumTfFunctionProviders **ppEnum) {
+    return This->lpVtbl->EnumFunctionProviders(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetGlobalCompartment(ITfThreadMgrEx* This,ITfCompartmentMgr **ppCompMgr) {
+    return This->lpVtbl->GetGlobalCompartment(This,ppCompMgr);
+}
+/*** ITfThreadMgrEx methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEx_ActivateEx(ITfThreadMgrEx* This,TfClientId *id,DWORD flags) {
+    return This->lpVtbl->ActivateEx(This,id,flags);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetActiveFlags(ITfThreadMgrEx* This,DWORD *flags) {
+    return This->lpVtbl->GetActiveFlags(This,flags);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfThreadMgrEx_ActivateEx_Proxy(
+    ITfThreadMgrEx* This,
+    TfClientId *id,
+    DWORD flags);
+void __RPC_STUB ITfThreadMgrEx_ActivateEx_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfThreadMgrEx_GetActiveFlags_Proxy(
+    ITfThreadMgrEx* This,
+    DWORD *flags);
+void __RPC_STUB ITfThreadMgrEx_GetActiveFlags_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfThreadMgrEx_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITfCompositionView interface
@@ -1021,6 +1512,542 @@ void __RPC_STUB ITfDocumentMgr_EnumContexts_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfDocumentMgr_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfContextView interface
+ */
+#ifndef __ITfContextView_INTERFACE_DEFINED__
+#define __ITfContextView_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfContextView, 0x2433bf8e, 0x0f9b, 0x435c, 0xba,0x2c, 0x18,0x06,0x11,0x97,0x8c,0x30);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("2433bf8e-0f9b-435c-ba2c-180611978c30")
+ITfContextView : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetRangeFromPoint(
+        TfEditCookie cookie,
+        const POINT *pt,
+        DWORD flags,
+        ITfRange **range) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTextExt(
+        TfEditCookie cookie,
+        ITfRange *range,
+        RECT *rect,
+        WINBOOL *clipped) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetScreenExt(
+        RECT *rect) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetWnd(
+        HWND *hwnd) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfContextView, 0x2433bf8e, 0x0f9b, 0x435c, 0xba,0x2c, 0x18,0x06,0x11,0x97,0x8c,0x30)
+#endif
+#else
+typedef struct ITfContextViewVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfContextView* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfContextView* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfContextView* This);
+
+    /*** ITfContextView methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetRangeFromPoint)(
+        ITfContextView* This,
+        TfEditCookie cookie,
+        const POINT *pt,
+        DWORD flags,
+        ITfRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *GetTextExt)(
+        ITfContextView* This,
+        TfEditCookie cookie,
+        ITfRange *range,
+        RECT *rect,
+        WINBOOL *clipped);
+
+    HRESULT (STDMETHODCALLTYPE *GetScreenExt)(
+        ITfContextView* This,
+        RECT *rect);
+
+    HRESULT (STDMETHODCALLTYPE *GetWnd)(
+        ITfContextView* This,
+        HWND *hwnd);
+
+    END_INTERFACE
+} ITfContextViewVtbl;
+interface ITfContextView {
+    CONST_VTBL ITfContextViewVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfContextView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfContextView_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfContextView_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfContextView methods ***/
+#define ITfContextView_GetRangeFromPoint(This,cookie,pt,flags,range) (This)->lpVtbl->GetRangeFromPoint(This,cookie,pt,flags,range)
+#define ITfContextView_GetTextExt(This,cookie,range,rect,clipped) (This)->lpVtbl->GetTextExt(This,cookie,range,rect,clipped)
+#define ITfContextView_GetScreenExt(This,rect) (This)->lpVtbl->GetScreenExt(This,rect)
+#define ITfContextView_GetWnd(This,hwnd) (This)->lpVtbl->GetWnd(This,hwnd)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfContextView_QueryInterface(ITfContextView* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfContextView_AddRef(ITfContextView* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfContextView_Release(ITfContextView* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfContextView methods ***/
+static FORCEINLINE HRESULT ITfContextView_GetRangeFromPoint(ITfContextView* This,TfEditCookie cookie,const POINT *pt,DWORD flags,ITfRange **range) {
+    return This->lpVtbl->GetRangeFromPoint(This,cookie,pt,flags,range);
+}
+static FORCEINLINE HRESULT ITfContextView_GetTextExt(ITfContextView* This,TfEditCookie cookie,ITfRange *range,RECT *rect,WINBOOL *clipped) {
+    return This->lpVtbl->GetTextExt(This,cookie,range,rect,clipped);
+}
+static FORCEINLINE HRESULT ITfContextView_GetScreenExt(ITfContextView* This,RECT *rect) {
+    return This->lpVtbl->GetScreenExt(This,rect);
+}
+static FORCEINLINE HRESULT ITfContextView_GetWnd(ITfContextView* This,HWND *hwnd) {
+    return This->lpVtbl->GetWnd(This,hwnd);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfContextView_GetRangeFromPoint_Proxy(
+    ITfContextView* This,
+    TfEditCookie cookie,
+    const POINT *pt,
+    DWORD flags,
+    ITfRange **range);
+void __RPC_STUB ITfContextView_GetRangeFromPoint_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfContextView_GetTextExt_Proxy(
+    ITfContextView* This,
+    TfEditCookie cookie,
+    ITfRange *range,
+    RECT *rect,
+    WINBOOL *clipped);
+void __RPC_STUB ITfContextView_GetTextExt_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfContextView_GetScreenExt_Proxy(
+    ITfContextView* This,
+    RECT *rect);
+void __RPC_STUB ITfContextView_GetScreenExt_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfContextView_GetWnd_Proxy(
+    ITfContextView* This,
+    HWND *hwnd);
+void __RPC_STUB ITfContextView_GetWnd_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfContextView_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumTfContextViews interface
+ */
+#ifndef __IEnumTfContextViews_INTERFACE_DEFINED__
+#define __IEnumTfContextViews_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumTfContextViews, 0xf0c0f8dd, 0xcf38, 0x44e1, 0xbb,0x0f, 0x68,0xcf,0x0d,0x55,0x1c,0x78);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f0c0f8dd-cf38-44e1-bb0f-68cf0d551c78")
+IEnumTfContextViews : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumTfContextViews **ret) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG count,
+        ITfContextView **views,
+        ULONG *fetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG count) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumTfContextViews, 0xf0c0f8dd, 0xcf38, 0x44e1, 0xbb,0x0f, 0x68,0xcf,0x0d,0x55,0x1c,0x78)
+#endif
+#else
+typedef struct IEnumTfContextViewsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumTfContextViews* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumTfContextViews* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumTfContextViews* This);
+
+    /*** IEnumTfContextViews methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumTfContextViews* This,
+        IEnumTfContextViews **ret);
+
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumTfContextViews* This,
+        ULONG count,
+        ITfContextView **views,
+        ULONG *fetched);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumTfContextViews* This);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumTfContextViews* This,
+        ULONG count);
+
+    END_INTERFACE
+} IEnumTfContextViewsVtbl;
+interface IEnumTfContextViews {
+    CONST_VTBL IEnumTfContextViewsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IEnumTfContextViews_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumTfContextViews_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumTfContextViews_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumTfContextViews methods ***/
+#define IEnumTfContextViews_Clone(This,ret) (This)->lpVtbl->Clone(This,ret)
+#define IEnumTfContextViews_Next(This,count,views,fetched) (This)->lpVtbl->Next(This,count,views,fetched)
+#define IEnumTfContextViews_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumTfContextViews_Skip(This,count) (This)->lpVtbl->Skip(This,count)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfContextViews_QueryInterface(IEnumTfContextViews* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfContextViews_AddRef(IEnumTfContextViews* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfContextViews_Release(IEnumTfContextViews* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfContextViews methods ***/
+static FORCEINLINE HRESULT IEnumTfContextViews_Clone(IEnumTfContextViews* This,IEnumTfContextViews **ret) {
+    return This->lpVtbl->Clone(This,ret);
+}
+static FORCEINLINE HRESULT IEnumTfContextViews_Next(IEnumTfContextViews* This,ULONG count,ITfContextView **views,ULONG *fetched) {
+    return This->lpVtbl->Next(This,count,views,fetched);
+}
+static FORCEINLINE HRESULT IEnumTfContextViews_Reset(IEnumTfContextViews* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfContextViews_Skip(IEnumTfContextViews* This,ULONG count) {
+    return This->lpVtbl->Skip(This,count);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumTfContextViews_Clone_Proxy(
+    IEnumTfContextViews* This,
+    IEnumTfContextViews **ret);
+void __RPC_STUB IEnumTfContextViews_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfContextViews_Next_Proxy(
+    IEnumTfContextViews* This,
+    ULONG count,
+    ITfContextView **views,
+    ULONG *fetched);
+void __RPC_STUB IEnumTfContextViews_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfContextViews_Reset_Proxy(
+    IEnumTfContextViews* This);
+void __RPC_STUB IEnumTfContextViews_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfContextViews_Skip_Proxy(
+    IEnumTfContextViews* This,
+    ULONG count);
+void __RPC_STUB IEnumTfContextViews_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumTfContextViews_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumTfProperties interface
+ */
+#ifndef __IEnumTfProperties_INTERFACE_DEFINED__
+#define __IEnumTfProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumTfProperties, 0x19188cb0, 0xaca9, 0x11d2, 0xaf,0xc5, 0x00,0x10,0x5a,0x27,0x99,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("19188cb0-aca9-11d2-afc5-00105a2799b5")
+IEnumTfProperties : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumTfProperties **ret) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG count,
+        ITfProperty **props,
+        ULONG *fetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG count) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumTfProperties, 0x19188cb0, 0xaca9, 0x11d2, 0xaf,0xc5, 0x00,0x10,0x5a,0x27,0x99,0xb5)
+#endif
+#else
+typedef struct IEnumTfPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumTfProperties* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumTfProperties* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumTfProperties* This);
+
+    /*** IEnumTfProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumTfProperties* This,
+        IEnumTfProperties **ret);
+
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumTfProperties* This,
+        ULONG count,
+        ITfProperty **props,
+        ULONG *fetched);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumTfProperties* This);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumTfProperties* This,
+        ULONG count);
+
+    END_INTERFACE
+} IEnumTfPropertiesVtbl;
+interface IEnumTfProperties {
+    CONST_VTBL IEnumTfPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IEnumTfProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumTfProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumTfProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumTfProperties methods ***/
+#define IEnumTfProperties_Clone(This,ret) (This)->lpVtbl->Clone(This,ret)
+#define IEnumTfProperties_Next(This,count,props,fetched) (This)->lpVtbl->Next(This,count,props,fetched)
+#define IEnumTfProperties_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumTfProperties_Skip(This,count) (This)->lpVtbl->Skip(This,count)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfProperties_QueryInterface(IEnumTfProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfProperties_AddRef(IEnumTfProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfProperties_Release(IEnumTfProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfProperties methods ***/
+static FORCEINLINE HRESULT IEnumTfProperties_Clone(IEnumTfProperties* This,IEnumTfProperties **ret) {
+    return This->lpVtbl->Clone(This,ret);
+}
+static FORCEINLINE HRESULT IEnumTfProperties_Next(IEnumTfProperties* This,ULONG count,ITfProperty **props,ULONG *fetched) {
+    return This->lpVtbl->Next(This,count,props,fetched);
+}
+static FORCEINLINE HRESULT IEnumTfProperties_Reset(IEnumTfProperties* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfProperties_Skip(IEnumTfProperties* This,ULONG count) {
+    return This->lpVtbl->Skip(This,count);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumTfProperties_Clone_Proxy(
+    IEnumTfProperties* This,
+    IEnumTfProperties **ret);
+void __RPC_STUB IEnumTfProperties_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfProperties_Next_Proxy(
+    IEnumTfProperties* This,
+    ULONG count,
+    ITfProperty **props,
+    ULONG *fetched);
+void __RPC_STUB IEnumTfProperties_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfProperties_Reset_Proxy(
+    IEnumTfProperties* This);
+void __RPC_STUB IEnumTfProperties_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfProperties_Skip_Proxy(
+    IEnumTfProperties* This,
+    ULONG count);
+void __RPC_STUB IEnumTfProperties_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumTfProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfRangeBackup interface
+ */
+#ifndef __ITfRangeBackup_INTERFACE_DEFINED__
+#define __ITfRangeBackup_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfRangeBackup, 0x463a506d, 0x6992, 0x49d2, 0x9b,0x88, 0x93,0xd5,0x5e,0x70,0xbb,0x16);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("463a506d-6992-49d2-9b88-93d55e70bb16")
+ITfRangeBackup : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Restore(
+        TfEditCookie cookie,
+        ITfRange *range) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfRangeBackup, 0x463a506d, 0x6992, 0x49d2, 0x9b,0x88, 0x93,0xd5,0x5e,0x70,0xbb,0x16)
+#endif
+#else
+typedef struct ITfRangeBackupVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfRangeBackup* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfRangeBackup* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfRangeBackup* This);
+
+    /*** ITfRangeBackup methods ***/
+    HRESULT (STDMETHODCALLTYPE *Restore)(
+        ITfRangeBackup* This,
+        TfEditCookie cookie,
+        ITfRange *range);
+
+    END_INTERFACE
+} ITfRangeBackupVtbl;
+interface ITfRangeBackup {
+    CONST_VTBL ITfRangeBackupVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfRangeBackup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfRangeBackup_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfRangeBackup_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfRangeBackup methods ***/
+#define ITfRangeBackup_Restore(This,cookie,range) (This)->lpVtbl->Restore(This,cookie,range)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfRangeBackup_QueryInterface(ITfRangeBackup* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfRangeBackup_AddRef(ITfRangeBackup* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfRangeBackup_Release(ITfRangeBackup* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfRangeBackup methods ***/
+static FORCEINLINE HRESULT ITfRangeBackup_Restore(ITfRangeBackup* This,TfEditCookie cookie,ITfRange *range) {
+    return This->lpVtbl->Restore(This,cookie,range);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfRangeBackup_Restore_Proxy(
+    ITfRangeBackup* This,
+    TfEditCookie cookie,
+    ITfRange *range);
+void __RPC_STUB ITfRangeBackup_Restore_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfRangeBackup_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITfContext interface
@@ -3421,6 +4448,265 @@ void __RPC_STUB ITfCategoryMgr_IsEqualTfGuidAtom_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfCategoryMgr_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumTfRanges interface
+ */
+#ifndef __IEnumTfRanges_INTERFACE_DEFINED__
+#define __IEnumTfRanges_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumTfRanges, 0xf99d3f40, 0x8e32, 0x11d2, 0xbf,0x46, 0x00,0x10,0x5a,0x27,0x99,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f99d3f40-8e32-11d2-bf46-00105a2799b5")
+IEnumTfRanges : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumTfRanges **ppEnum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG ulCount,
+        ITfRange **ppRange,
+        ULONG *pcFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG ulCount) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumTfRanges, 0xf99d3f40, 0x8e32, 0x11d2, 0xbf,0x46, 0x00,0x10,0x5a,0x27,0x99,0xb5)
+#endif
+#else
+typedef struct IEnumTfRangesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumTfRanges* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumTfRanges* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumTfRanges* This);
+
+    /*** IEnumTfRanges methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumTfRanges* This,
+        IEnumTfRanges **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumTfRanges* This,
+        ULONG ulCount,
+        ITfRange **ppRange,
+        ULONG *pcFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumTfRanges* This);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumTfRanges* This,
+        ULONG ulCount);
+
+    END_INTERFACE
+} IEnumTfRangesVtbl;
+interface IEnumTfRanges {
+    CONST_VTBL IEnumTfRangesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IEnumTfRanges_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumTfRanges_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumTfRanges_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumTfRanges methods ***/
+#define IEnumTfRanges_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
+#define IEnumTfRanges_Next(This,ulCount,ppRange,pcFetched) (This)->lpVtbl->Next(This,ulCount,ppRange,pcFetched)
+#define IEnumTfRanges_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumTfRanges_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfRanges_QueryInterface(IEnumTfRanges* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfRanges_AddRef(IEnumTfRanges* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfRanges_Release(IEnumTfRanges* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfRanges methods ***/
+static FORCEINLINE HRESULT IEnumTfRanges_Clone(IEnumTfRanges* This,IEnumTfRanges **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+static FORCEINLINE HRESULT IEnumTfRanges_Next(IEnumTfRanges* This,ULONG ulCount,ITfRange **ppRange,ULONG *pcFetched) {
+    return This->lpVtbl->Next(This,ulCount,ppRange,pcFetched);
+}
+static FORCEINLINE HRESULT IEnumTfRanges_Reset(IEnumTfRanges* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfRanges_Skip(IEnumTfRanges* This,ULONG ulCount) {
+    return This->lpVtbl->Skip(This,ulCount);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumTfRanges_Clone_Proxy(
+    IEnumTfRanges* This,
+    IEnumTfRanges **ppEnum);
+void __RPC_STUB IEnumTfRanges_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfRanges_Next_Proxy(
+    IEnumTfRanges* This,
+    ULONG ulCount,
+    ITfRange **ppRange,
+    ULONG *pcFetched);
+void __RPC_STUB IEnumTfRanges_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfRanges_Reset_Proxy(
+    IEnumTfRanges* This);
+void __RPC_STUB IEnumTfRanges_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfRanges_Skip_Proxy(
+    IEnumTfRanges* This,
+    ULONG ulCount);
+void __RPC_STUB IEnumTfRanges_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumTfRanges_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfEditRecord interface
+ */
+#ifndef __ITfEditRecord_INTERFACE_DEFINED__
+#define __ITfEditRecord_INTERFACE_DEFINED__
+
+#define TF_GTP_INCL_TEXT (0x1)
+
+DEFINE_GUID(IID_ITfEditRecord, 0x42d4d099, 0x7c1a, 0x4a89, 0xb8,0x36, 0x6c,0x6f,0x22,0x16,0x0d,0xf0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("42d4d099-7c1a-4a89-b836-6c6f22160df0")
+ITfEditRecord : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetSelectionStatus(
+        WINBOOL *changed) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTextAndPropertyUpdates(
+        DWORD flags,
+        const GUID **props,
+        ULONG count,
+        IEnumTfRanges **ret) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfEditRecord, 0x42d4d099, 0x7c1a, 0x4a89, 0xb8,0x36, 0x6c,0x6f,0x22,0x16,0x0d,0xf0)
+#endif
+#else
+typedef struct ITfEditRecordVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfEditRecord* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfEditRecord* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfEditRecord* This);
+
+    /*** ITfEditRecord methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSelectionStatus)(
+        ITfEditRecord* This,
+        WINBOOL *changed);
+
+    HRESULT (STDMETHODCALLTYPE *GetTextAndPropertyUpdates)(
+        ITfEditRecord* This,
+        DWORD flags,
+        const GUID **props,
+        ULONG count,
+        IEnumTfRanges **ret);
+
+    END_INTERFACE
+} ITfEditRecordVtbl;
+interface ITfEditRecord {
+    CONST_VTBL ITfEditRecordVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfEditRecord_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfEditRecord_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfEditRecord_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfEditRecord methods ***/
+#define ITfEditRecord_GetSelectionStatus(This,changed) (This)->lpVtbl->GetSelectionStatus(This,changed)
+#define ITfEditRecord_GetTextAndPropertyUpdates(This,flags,props,count,ret) (This)->lpVtbl->GetTextAndPropertyUpdates(This,flags,props,count,ret)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfEditRecord_QueryInterface(ITfEditRecord* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfEditRecord_AddRef(ITfEditRecord* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfEditRecord_Release(ITfEditRecord* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfEditRecord methods ***/
+static FORCEINLINE HRESULT ITfEditRecord_GetSelectionStatus(ITfEditRecord* This,WINBOOL *changed) {
+    return This->lpVtbl->GetSelectionStatus(This,changed);
+}
+static FORCEINLINE HRESULT ITfEditRecord_GetTextAndPropertyUpdates(ITfEditRecord* This,DWORD flags,const GUID **props,ULONG count,IEnumTfRanges **ret) {
+    return This->lpVtbl->GetTextAndPropertyUpdates(This,flags,props,count,ret);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfEditRecord_GetSelectionStatus_Proxy(
+    ITfEditRecord* This,
+    WINBOOL *changed);
+void __RPC_STUB ITfEditRecord_GetSelectionStatus_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfEditRecord_GetTextAndPropertyUpdates_Proxy(
+    ITfEditRecord* This,
+    DWORD flags,
+    const GUID **props,
+    ULONG count,
+    IEnumTfRanges **ret);
+void __RPC_STUB ITfEditRecord_GetTextAndPropertyUpdates_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfEditRecord_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITfTextEditSink interface
@@ -6603,151 +7889,6 @@ void __RPC_STUB ITfPropertyStore_Serialize_Stub(
 #endif  /* __ITfPropertyStore_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
- * IEnumTfRanges interface
- */
-#ifndef __IEnumTfRanges_INTERFACE_DEFINED__
-#define __IEnumTfRanges_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID_IEnumTfRanges, 0xf99d3f40, 0x8e32, 0x11d2, 0xbf,0x46, 0x00,0x10,0x5a,0x27,0x99,0xb5);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("f99d3f40-8e32-11d2-bf46-00105a2799b5")
-IEnumTfRanges : public IUnknown
-{
-    virtual HRESULT STDMETHODCALLTYPE Clone(
-        IEnumTfRanges **ppEnum) = 0;
-
-    virtual HRESULT STDMETHODCALLTYPE Next(
-        ULONG ulCount,
-        ITfRange **ppRange,
-        ULONG *pcFetched) = 0;
-
-    virtual HRESULT STDMETHODCALLTYPE Reset(
-        ) = 0;
-
-    virtual HRESULT STDMETHODCALLTYPE Skip(
-        ULONG ulCount) = 0;
-
-};
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(IEnumTfRanges, 0xf99d3f40, 0x8e32, 0x11d2, 0xbf,0x46, 0x00,0x10,0x5a,0x27,0x99,0xb5)
-#endif
-#else
-typedef struct IEnumTfRangesVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        IEnumTfRanges* This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        IEnumTfRanges* This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        IEnumTfRanges* This);
-
-    /*** IEnumTfRanges methods ***/
-    HRESULT (STDMETHODCALLTYPE *Clone)(
-        IEnumTfRanges* This,
-        IEnumTfRanges **ppEnum);
-
-    HRESULT (STDMETHODCALLTYPE *Next)(
-        IEnumTfRanges* This,
-        ULONG ulCount,
-        ITfRange **ppRange,
-        ULONG *pcFetched);
-
-    HRESULT (STDMETHODCALLTYPE *Reset)(
-        IEnumTfRanges* This);
-
-    HRESULT (STDMETHODCALLTYPE *Skip)(
-        IEnumTfRanges* This,
-        ULONG ulCount);
-
-    END_INTERFACE
-} IEnumTfRangesVtbl;
-interface IEnumTfRanges {
-    CONST_VTBL IEnumTfRangesVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define IEnumTfRanges_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumTfRanges_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IEnumTfRanges_Release(This) (This)->lpVtbl->Release(This)
-/*** IEnumTfRanges methods ***/
-#define IEnumTfRanges_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
-#define IEnumTfRanges_Next(This,ulCount,ppRange,pcFetched) (This)->lpVtbl->Next(This,ulCount,ppRange,pcFetched)
-#define IEnumTfRanges_Reset(This) (This)->lpVtbl->Reset(This)
-#define IEnumTfRanges_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
-#else
-/*** IUnknown methods ***/
-static FORCEINLINE HRESULT IEnumTfRanges_QueryInterface(IEnumTfRanges* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static FORCEINLINE ULONG IEnumTfRanges_AddRef(IEnumTfRanges* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static FORCEINLINE ULONG IEnumTfRanges_Release(IEnumTfRanges* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** IEnumTfRanges methods ***/
-static FORCEINLINE HRESULT IEnumTfRanges_Clone(IEnumTfRanges* This,IEnumTfRanges **ppEnum) {
-    return This->lpVtbl->Clone(This,ppEnum);
-}
-static FORCEINLINE HRESULT IEnumTfRanges_Next(IEnumTfRanges* This,ULONG ulCount,ITfRange **ppRange,ULONG *pcFetched) {
-    return This->lpVtbl->Next(This,ulCount,ppRange,pcFetched);
-}
-static FORCEINLINE HRESULT IEnumTfRanges_Reset(IEnumTfRanges* This) {
-    return This->lpVtbl->Reset(This);
-}
-static FORCEINLINE HRESULT IEnumTfRanges_Skip(IEnumTfRanges* This,ULONG ulCount) {
-    return This->lpVtbl->Skip(This,ulCount);
-}
-#endif
-#endif
-
-#endif
-
-HRESULT STDMETHODCALLTYPE IEnumTfRanges_Clone_Proxy(
-    IEnumTfRanges* This,
-    IEnumTfRanges **ppEnum);
-void __RPC_STUB IEnumTfRanges_Clone_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IEnumTfRanges_Next_Proxy(
-    IEnumTfRanges* This,
-    ULONG ulCount,
-    ITfRange **ppRange,
-    ULONG *pcFetched);
-void __RPC_STUB IEnumTfRanges_Next_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IEnumTfRanges_Reset_Proxy(
-    IEnumTfRanges* This);
-void __RPC_STUB IEnumTfRanges_Reset_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IEnumTfRanges_Skip_Proxy(
-    IEnumTfRanges* This,
-    ULONG ulCount);
-void __RPC_STUB IEnumTfRanges_Skip_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-
-#endif  /* __IEnumTfRanges_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
  * IEnumITfCompositionView interface
  */
 #ifndef __IEnumITfCompositionView_INTERFACE_DEFINED__
@@ -8691,6 +9832,461 @@ void __RPC_STUB IEnumTfDocumentMgrs_Skip_Stub(
 #endif  /* __IEnumTfDocumentMgrs_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * ITfUIElement interface
+ */
+#ifndef __ITfUIElement_INTERFACE_DEFINED__
+#define __ITfUIElement_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfUIElement, 0xea1ea137, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ea1ea137-19df-11d7-a6d2-00065b84435c")
+ITfUIElement : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetDescription(
+        BSTR *description) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGUID(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Show(
+        WINBOOL show) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsShown(
+        WINBOOL *show) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfUIElement, 0xea1ea137, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c)
+#endif
+#else
+typedef struct ITfUIElementVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfUIElement* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfUIElement* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfUIElement* This);
+
+    /*** ITfUIElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDescription)(
+        ITfUIElement* This,
+        BSTR *description);
+
+    HRESULT (STDMETHODCALLTYPE *GetGUID)(
+        ITfUIElement* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *Show)(
+        ITfUIElement* This,
+        WINBOOL show);
+
+    HRESULT (STDMETHODCALLTYPE *IsShown)(
+        ITfUIElement* This,
+        WINBOOL *show);
+
+    END_INTERFACE
+} ITfUIElementVtbl;
+interface ITfUIElement {
+    CONST_VTBL ITfUIElementVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfUIElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfUIElement_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfUIElement_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfUIElement methods ***/
+#define ITfUIElement_GetDescription(This,description) (This)->lpVtbl->GetDescription(This,description)
+#define ITfUIElement_GetGUID(This,guid) (This)->lpVtbl->GetGUID(This,guid)
+#define ITfUIElement_Show(This,show) (This)->lpVtbl->Show(This,show)
+#define ITfUIElement_IsShown(This,show) (This)->lpVtbl->IsShown(This,show)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfUIElement_QueryInterface(ITfUIElement* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfUIElement_AddRef(ITfUIElement* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfUIElement_Release(ITfUIElement* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfUIElement methods ***/
+static FORCEINLINE HRESULT ITfUIElement_GetDescription(ITfUIElement* This,BSTR *description) {
+    return This->lpVtbl->GetDescription(This,description);
+}
+static FORCEINLINE HRESULT ITfUIElement_GetGUID(ITfUIElement* This,GUID *guid) {
+    return This->lpVtbl->GetGUID(This,guid);
+}
+static FORCEINLINE HRESULT ITfUIElement_Show(ITfUIElement* This,WINBOOL show) {
+    return This->lpVtbl->Show(This,show);
+}
+static FORCEINLINE HRESULT ITfUIElement_IsShown(ITfUIElement* This,WINBOOL *show) {
+    return This->lpVtbl->IsShown(This,show);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfUIElement_GetDescription_Proxy(
+    ITfUIElement* This,
+    BSTR *description);
+void __RPC_STUB ITfUIElement_GetDescription_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElement_GetGUID_Proxy(
+    ITfUIElement* This,
+    GUID *guid);
+void __RPC_STUB ITfUIElement_GetGUID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElement_Show_Proxy(
+    ITfUIElement* This,
+    WINBOOL show);
+void __RPC_STUB ITfUIElement_Show_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElement_IsShown_Proxy(
+    ITfUIElement* This,
+    WINBOOL *show);
+void __RPC_STUB ITfUIElement_IsShown_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfUIElement_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumTfUIElements interface
+ */
+#ifndef __IEnumTfUIElements_INTERFACE_DEFINED__
+#define __IEnumTfUIElements_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumTfUIElements, 0x887aa91e, 0xacba, 0x4931, 0x84,0xda, 0x3c,0x52,0x08,0xcf,0x54,0x3f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("887aa91e-acba-4931-84da-3c5208cf543f")
+IEnumTfUIElements : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumTfUIElements **enum_elements) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG count,
+        ITfUIElement **element,
+        ULONG fetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG count) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumTfUIElements, 0x887aa91e, 0xacba, 0x4931, 0x84,0xda, 0x3c,0x52,0x08,0xcf,0x54,0x3f)
+#endif
+#else
+typedef struct IEnumTfUIElementsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumTfUIElements* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumTfUIElements* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumTfUIElements* This);
+
+    /*** IEnumTfUIElements methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumTfUIElements* This,
+        IEnumTfUIElements **enum_elements);
+
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumTfUIElements* This,
+        ULONG count,
+        ITfUIElement **element,
+        ULONG fetched);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumTfUIElements* This);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumTfUIElements* This,
+        ULONG count);
+
+    END_INTERFACE
+} IEnumTfUIElementsVtbl;
+interface IEnumTfUIElements {
+    CONST_VTBL IEnumTfUIElementsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IEnumTfUIElements_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumTfUIElements_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumTfUIElements_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumTfUIElements methods ***/
+#define IEnumTfUIElements_Clone(This,enum_elements) (This)->lpVtbl->Clone(This,enum_elements)
+#define IEnumTfUIElements_Next(This,count,element,fetched) (This)->lpVtbl->Next(This,count,element,fetched)
+#define IEnumTfUIElements_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumTfUIElements_Skip(This,count) (This)->lpVtbl->Skip(This,count)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfUIElements_QueryInterface(IEnumTfUIElements* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfUIElements_AddRef(IEnumTfUIElements* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfUIElements_Release(IEnumTfUIElements* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfUIElements methods ***/
+static FORCEINLINE HRESULT IEnumTfUIElements_Clone(IEnumTfUIElements* This,IEnumTfUIElements **enum_elements) {
+    return This->lpVtbl->Clone(This,enum_elements);
+}
+static FORCEINLINE HRESULT IEnumTfUIElements_Next(IEnumTfUIElements* This,ULONG count,ITfUIElement **element,ULONG fetched) {
+    return This->lpVtbl->Next(This,count,element,fetched);
+}
+static FORCEINLINE HRESULT IEnumTfUIElements_Reset(IEnumTfUIElements* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfUIElements_Skip(IEnumTfUIElements* This,ULONG count) {
+    return This->lpVtbl->Skip(This,count);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Clone_Proxy(
+    IEnumTfUIElements* This,
+    IEnumTfUIElements **enum_elements);
+void __RPC_STUB IEnumTfUIElements_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Next_Proxy(
+    IEnumTfUIElements* This,
+    ULONG count,
+    ITfUIElement **element,
+    ULONG fetched);
+void __RPC_STUB IEnumTfUIElements_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Reset_Proxy(
+    IEnumTfUIElements* This);
+void __RPC_STUB IEnumTfUIElements_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Skip_Proxy(
+    IEnumTfUIElements* This,
+    ULONG count);
+void __RPC_STUB IEnumTfUIElements_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumTfUIElements_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfUIElementMgr interface
+ */
+#ifndef __ITfUIElementMgr_INTERFACE_DEFINED__
+#define __ITfUIElementMgr_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfUIElementMgr, 0xea1ea135, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ea1ea135-19df-11d7-a6d2-00065b84435c")
+ITfUIElementMgr : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE BeginUIElement(
+        ITfUIElement *element,
+        WINBOOL *show,
+        DWORD *id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UpdateUIElement(
+        DWORD id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndUIElement(
+        DWORD id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUIElement(
+        DWORD id,
+        ITfUIElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumUIElements(
+        IEnumTfUIElements **enum_elements) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfUIElementMgr, 0xea1ea135, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c)
+#endif
+#else
+typedef struct ITfUIElementMgrVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfUIElementMgr* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfUIElementMgr* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfUIElementMgr* This);
+
+    /*** ITfUIElementMgr methods ***/
+    HRESULT (STDMETHODCALLTYPE *BeginUIElement)(
+        ITfUIElementMgr* This,
+        ITfUIElement *element,
+        WINBOOL *show,
+        DWORD *id);
+
+    HRESULT (STDMETHODCALLTYPE *UpdateUIElement)(
+        ITfUIElementMgr* This,
+        DWORD id);
+
+    HRESULT (STDMETHODCALLTYPE *EndUIElement)(
+        ITfUIElementMgr* This,
+        DWORD id);
+
+    HRESULT (STDMETHODCALLTYPE *GetUIElement)(
+        ITfUIElementMgr* This,
+        DWORD id,
+        ITfUIElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *EnumUIElements)(
+        ITfUIElementMgr* This,
+        IEnumTfUIElements **enum_elements);
+
+    END_INTERFACE
+} ITfUIElementMgrVtbl;
+interface ITfUIElementMgr {
+    CONST_VTBL ITfUIElementMgrVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfUIElementMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfUIElementMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfUIElementMgr_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfUIElementMgr methods ***/
+#define ITfUIElementMgr_BeginUIElement(This,element,show,id) (This)->lpVtbl->BeginUIElement(This,element,show,id)
+#define ITfUIElementMgr_UpdateUIElement(This,id) (This)->lpVtbl->UpdateUIElement(This,id)
+#define ITfUIElementMgr_EndUIElement(This,id) (This)->lpVtbl->EndUIElement(This,id)
+#define ITfUIElementMgr_GetUIElement(This,id,element) (This)->lpVtbl->GetUIElement(This,id,element)
+#define ITfUIElementMgr_EnumUIElements(This,enum_elements) (This)->lpVtbl->EnumUIElements(This,enum_elements)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfUIElementMgr_QueryInterface(ITfUIElementMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfUIElementMgr_AddRef(ITfUIElementMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfUIElementMgr_Release(ITfUIElementMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfUIElementMgr methods ***/
+static FORCEINLINE HRESULT ITfUIElementMgr_BeginUIElement(ITfUIElementMgr* This,ITfUIElement *element,WINBOOL *show,DWORD *id) {
+    return This->lpVtbl->BeginUIElement(This,element,show,id);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_UpdateUIElement(ITfUIElementMgr* This,DWORD id) {
+    return This->lpVtbl->UpdateUIElement(This,id);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_EndUIElement(ITfUIElementMgr* This,DWORD id) {
+    return This->lpVtbl->EndUIElement(This,id);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_GetUIElement(ITfUIElementMgr* This,DWORD id,ITfUIElement **element) {
+    return This->lpVtbl->GetUIElement(This,id,element);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_EnumUIElements(ITfUIElementMgr* This,IEnumTfUIElements **enum_elements) {
+    return This->lpVtbl->EnumUIElements(This,enum_elements);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_BeginUIElement_Proxy(
+    ITfUIElementMgr* This,
+    ITfUIElement *element,
+    WINBOOL *show,
+    DWORD *id);
+void __RPC_STUB ITfUIElementMgr_BeginUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_UpdateUIElement_Proxy(
+    ITfUIElementMgr* This,
+    DWORD id);
+void __RPC_STUB ITfUIElementMgr_UpdateUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_EndUIElement_Proxy(
+    ITfUIElementMgr* This,
+    DWORD id);
+void __RPC_STUB ITfUIElementMgr_EndUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_GetUIElement_Proxy(
+    ITfUIElementMgr* This,
+    DWORD id,
+    ITfUIElement **element);
+void __RPC_STUB ITfUIElementMgr_GetUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_EnumUIElements_Proxy(
+    ITfUIElementMgr* This,
+    IEnumTfUIElements **enum_elements);
+void __RPC_STUB ITfUIElementMgr_EnumUIElements_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfUIElementMgr_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * ITfSourceSingle interface
  */
 #ifndef __ITfSourceSingle_INTERFACE_DEFINED__
@@ -9316,14 +10912,14 @@ void __RPC_STUB ITfMouseTrackerACP_UnadviseMouseSink_Stub(
 
 /* Begin additional prototypes for all interfaces */
 
-ULONG           __RPC_USER HWND_UserSize     (ULONG *, ULONG, HWND *);
-unsigned char * __RPC_USER HWND_UserMarshal  (ULONG *, unsigned char *, HWND *);
-unsigned char * __RPC_USER HWND_UserUnmarshal(ULONG *, unsigned char *, HWND *);
-void            __RPC_USER HWND_UserFree     (ULONG *, HWND *);
 ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
 unsigned char * __RPC_USER BSTR_UserMarshal  (ULONG *, unsigned char *, BSTR *);
 unsigned char * __RPC_USER BSTR_UserUnmarshal(ULONG *, unsigned char *, BSTR *);
 void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
+ULONG           __RPC_USER HWND_UserSize     (ULONG *, ULONG, HWND *);
+unsigned char * __RPC_USER HWND_UserMarshal  (ULONG *, unsigned char *, HWND *);
+unsigned char * __RPC_USER HWND_UserUnmarshal(ULONG *, unsigned char *, HWND *);
+void            __RPC_USER HWND_UserFree     (ULONG *, HWND *);
 ULONG           __RPC_USER VARIANT_UserSize     (ULONG *, ULONG, VARIANT *);
 unsigned char * __RPC_USER VARIANT_UserMarshal  (ULONG *, unsigned char *, VARIANT *);
 unsigned char * __RPC_USER VARIANT_UserUnmarshal(ULONG *, unsigned char *, VARIANT *);
